@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>List of Short URLs</title>
+</head>
+<body>
+    <h1>List of Short URLs</h1>
+    <ul>
+        {% for url in urls %}
+            <li>
+                <strong>Short URL:</strong>
+                <a href="{% url 'redirect_to_original_url' url.short_code %}" target="_blank">{% url 'redirect_to_original_url' url.short_code %}</a><br>
+                <strong>Long URL:</strong> {{ url.long_url }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
